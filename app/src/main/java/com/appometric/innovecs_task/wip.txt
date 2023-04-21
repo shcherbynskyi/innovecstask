@@ -1,0 +1,18 @@
+# Context
+
+We should run WorkManager task each 15 minutes and show/update the notification each "tick", with
+the corresponding information about when was the latest boot completed, how much boot completed events
+were there, etc.
+
+Responsibility of a broadcast receiver is just to receive BOOT_COMPLETED event and pass it to the
+application to store/use in the future. Responsibility of a work manager is to get this information
+about the latest boot completed event and show the notification with the corresponding info (each 15 minutes).
+
+
+# Steps (WIP)
+
+1. Register receiver that receives BOOT_COMPLETED action (done) and save the event's timestamp (not done)
+2. Start WorkManager that shows/updates notification each 15 minutes in onStart() method of MainActivity (partially done) - it took me a while to learn more about WorkManager
+3. Show notification with the latest boot received event data, etc (not done)
+4. Make sure to save boot received event data in the database (not done)
+5. Verify on my end (not done, since all the previous steps are not done)
